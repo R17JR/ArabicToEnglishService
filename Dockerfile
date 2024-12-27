@@ -1,20 +1,20 @@
-# Use the official Python image as a base image
-FROM python:3.9-slim
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the requirements file to the container
-COPY requirements.txt .
+# Copy the requirements file into the container
+COPY requirements.txt /app/requirements.txt
 
-# Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install dependencies
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy the application code to the container
-COPY . .
+# Copy the rest of the application code
+COPY . /app
 
-# Expose the application port (if applicable)
+# Expose the port the app runs on
 EXPOSE 5000
 
-# Set the entry point to run the Kafka consumer worker
-CMD ["python", "app.py"]
+# Define the command to run the application
+CMD ["python", "AR2EN_FlaskApi.py"]
