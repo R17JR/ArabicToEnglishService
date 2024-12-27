@@ -8,6 +8,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy microservice app
-COPY app.py .
+COPY ..
 
-CMD ["python", "app.py"]
+CMD ["python", "AR2EN_FlaskApi.py"]
